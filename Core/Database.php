@@ -4,7 +4,6 @@ namespace Core;
 
 use Exception;
 use PDO;
-use PDOException;
 
 class Database {
     public $connection;

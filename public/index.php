@@ -1,7 +1,5 @@
 <?php
 
-use Core\App;
-use Core\Database;
 
 const BASE_PATH = __DIR__ . '/../';
 
@@ -13,7 +11,7 @@ spl_autoload_register(function($class){
 });
 
 require BASE_PATH . "bootstrap.php";
-
+require BASE_PATH . "controllers/index.php";
 
 
 
