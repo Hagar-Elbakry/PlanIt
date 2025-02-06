@@ -15,7 +15,7 @@
             <p class="bold"><?php echo $course['name']?></p>
         </div>
         <div class="list__removeItem">
-            <form action="." method="post">
+            <form action="/" method="post">
                 <input type="hidden" name="action" value="delete_course">
                 <input type="hidden" name="course_id" value="<?php echo $course['id']?>">
                 <button class="remove-button">❌</button>
@@ -31,7 +31,7 @@
 
 <section id="add" class="add">
     <h2>Add Course</h2>
-    <form action="." method="post" id="add__form" class="add__form">
+    <form action="/" method="post" id="add__form" class="add__form">
         <input type="hidden" name="action" value="add_course">
         <div class="add__inputs">
             <label>Name:</label>
@@ -44,7 +44,7 @@
 </section>
 
 <br>
-<p><a href=".">View&amp; Add Assignments</a></p>
+<p><a href="/">View&amp; Add Assignments</a></p>
 
 <?php require base_path("views/partials/footer.view.php")?>
 

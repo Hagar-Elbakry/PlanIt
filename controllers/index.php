@@ -1,11 +1,11 @@
 <?php
 
+use Core\Validator;
 use Core\App;
 use Core\Database;
-use Core\Validator;
+use Models\Course;
+use Models\Assignment;
 $db = App::resolve(Database::class);
-require base_path("models/assignment_db.php");
-require base_path("models/course_db.php");
 
 $assignmentId = Validator::number(INPUT_POST, 'assignment_id');
 $description = Validator::string(INPUT_POST, 'description');
@@ -27,10 +27,25 @@ if(!$action) {
 }
 
 switch($action) {
+    case "list_courses":
+        require base_path("controllers/courses/list.php");
+        break;
+    case "add_course":
+        require base_path("controllers/courses/add.php");
+        break;
+        case "add_assignment":
+            require base_path("controllers/assignments/add.php");
+           break;
+        case "delete_course":
+            require base_path("controllers/courses/delete.php");
+            break;
+        case "delete_assignment":
+           require base_path("controllers/assignments/delete.php");
+            break;
     default:
-        $course_name = get_course_name($db, $courseId);
-        $courses = get_courses($db);
-        $assignments = get_assignments_by_course($db, $courseId);
+        $course_name = Course::get_course_name($db, $courseId);
+        $courses = Course::get_courses($db);
+        $assignments = Assignment::get_assignments_by_course($db, $courseId);
         view("assignment_list.view.php", [
             'courseId' => $courseId,
             'course_name' => $course_name,

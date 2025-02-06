@@ -5,7 +5,7 @@
         <h1>
             Assignments
         </h1>
-        <form action="." method="get" id="list__header_select" class="list__header_select">
+        <form action="/" method="get" id="list__header_select" class="list__header_select">
             <input type="hidden" name="action" value="list_assignments">
             <select name="course_id" required>
                 <option value="0">View All</option>
@@ -13,11 +13,12 @@
                 <?php if($courseId == $course['id']):?>
                     <option value="<?php echo $course['id']?>" selected>
                 <?php else:?>
-                    <option value="<?php echo $course['id']?>"
+                    <option value="<?php echo $course['id']?>">
                 <?php endif;?>
                     <?php echo $course['name']?>
                     </option>
                 <?php endforeach;?>
+
             </select>
             <button class="add-button bold">Go</button>
         </form>
@@ -31,7 +32,7 @@
             <p><?php echo $assignment['description']?></p>
         </div>
         <div class="list__removeItem">
-            <form action="." method="post">
+            <form action="/" method="post">
                 <input type="hidden" name="action" value="delete_assignment">
                 <input type="hidden" name="assignment_id" value="<?php echo $assignment['id']?>">
                 <button class="remove-button">❌</button>
@@ -52,7 +53,7 @@
 
 <section id="add" class="add">
     <h2>Add Assignment</h2>
-    <form action="." method="post" id="add__form" class="add__form">
+    <form action="/" method="post" id="add__form" class="add__form">
         <input type="hidden" name="action" value="add_assignment">
         <div class="add__inputs">
             <label>Courses:</label>
@@ -73,6 +74,6 @@
 
 <br>
 
-<a href=".?action=list_courses">View/Edit Courses</a>
+<a href="?action=list_courses">View/Edit Courses</a>
 <?php require base_path("views/partials/footer.view.php")?>
 
